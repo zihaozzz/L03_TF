@@ -1,0 +1,19 @@
+${jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+          "Effect": "Allow",
+          "Action": "dynamodb:*",
+          "Resource": "${dynamodb_table_arn}"
+      },
+      {
+        "Action": [
+          "S3:*"
+        ],
+        "Effect": "Allow",
+        "Resource": [for s3 in s3_resources : "${s3}"]
+      }
+    ]
+  }
+)}
+
