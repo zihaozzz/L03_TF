@@ -11,12 +11,16 @@ variable "app_count" {
 
 variable "api_name" {
   description = "Values of the Name tag for the EC2 instance"
-  type        = list  
-  default     = ["api1", "api2", "api3"]
+  type        = map(any)  
+  default     = {
+    "ins1" = "api1"
+    "ins2" = "api2"
+    "ins3" = "api3"
+  }
 }
 
 variable "high_availability" {
-  description =  description = "If this is a multiple instance deployment, choose `true` to deploy more instances"
+  description = "If this is a multiple instance deployment, choose `true` to deploy more instances"
   type        = bool  
   default     = false  
 }

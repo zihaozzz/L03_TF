@@ -1,5 +1,5 @@
 resource "aws_instance" "app_server" {
-  count		      = (var.high_availability == true ? 2 : 1)
+  count         = (var.high_availability == true ? 2 : 1)
   ami           = data.aws_ami.ubuntu22.id
   instance_type = "t2.micro"
 
